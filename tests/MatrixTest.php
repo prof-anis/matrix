@@ -8,48 +8,50 @@ use PHPUnit\Framework\TestCase;
  */
 class MatrixTest extends TestCase
 {
-	/*
-	** test add function
-	*/
-
-	 
-
-	function testRowCount()
+	public function setUp() : void
 	{
-		$matrix = new Matrix;
-
-		$data =  [[2,3,4],[10,9,7]];
-
-		$response = $matrix->rowCount($data);
-
-		$this->assertSame($response,2);
+		$this->matrix = new Matrix;
 	}
 
-		function testColumnCount()
+
+	public function testSetScalarReturnsInstanceOfClass()
 	{
-		$matrix = new Matrix;
-
-		$data =  [[2,3,4],[10,9,7]];
-
-		$response = $matrix->columnCount($data);
-
-		$this->assertSame($response,3);
+		$this->assertInstanceOf(Matrix::class,$this->matrix->setScalar(9));
 	}
 
-	function testHowManyMatrix()
+	public function testSetReturnsInstanceOfClass()
 	{
-
-		$matrix = new Matrix;
-
-		$matrix_1 = [[2,3,4],[10,9,7]];
-		$matrix_2 = [[2,3,4],[10,9,7]];
-		$matrix_3 = [[2,3,4],[10,9,7]];
-
-		$how_many =  $matrix->set($matrix_1)->set($matrix_2)->set($matrix_3)->howManyMatrix();
-
-		$this->assertSame($how_many,3);
+		$this->assertInstanceOf(Matrix::class,$this->matrix->set([[1,1,1],[1,1,1]]));
 	}
 
-	
+	public function testIdentityMatrix()
+	{
+		$identityMatrix = [[1,1,1],[1,1,1]];
+
+		$this->assertSame($identityMatrix,$this->matrix->identityMatrix(2,3));
+	}
+
+	public function testScalarToMatrix()
+	{
+		$matrix = [[2,2,2],[2,2,2]];
+
+		$this->assertSame($matrix,$this->matrix->scalarToMatrix(2,2,3));
+	}
+
+	public function testAddOnlyMatrix()
+	{
+		$matrix_1 = [[1,2,3],[1,2,3]];
+		$matrix_2 = [[1,2,3],[1,2,3]];
+
+		$result = $this->matrix->set($matrix_1)->set($matrix_2)->add();
+
+		$this->assertSame($result,[[2,4,6],[2,4,6]]);
+		
+	}
+
+	public function tearDown():void
+	{
+		$this->matrix = [];
+	}
 	 
 }

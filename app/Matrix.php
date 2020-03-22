@@ -1,15 +1,28 @@
 <?php
 
 namespace App;
+
+use App\Exceptions\BadMethodCallException;
+use App\Traits\BasicTrait;
+use App\Builder;
 /**
  * 
  */
 class Matrix
 {
+	use BasicTrait;
 	
-	public function multiply() : array
-	{
 
+	public $matrix = [];
+
+	public $scalar = [];
+
+	
+
+	public function setScalar(int $scalar) : object
+	{
+		$this->scalar[] = $scalar;
+		return $this;
 	}
 
 	public function set(array $matrix) :object
@@ -20,100 +33,39 @@ class Matrix
 
 	}
 
-	public function rowCount($matrix) :int
+	public static function identityMatrix($rows,$columns)
 	{
-		return count($matrix);
+		return Builder::identityMatrix($rows,$columns);
 	}
 
-	public function columnCount($matrix) : int
+	public function scalarToMatrix($scalar,$rows,$columns)
 	{
-		return count($matrix[0]);
+		return Builder::scalarToMatrix($scalar,$rows,$columns);
 	}
 
-	public function pickRow($matrix,$row) : array
-	{
-		return $matrix[$row];
-	}
 
-	public function pickColumn($matrix,$column) : array
-	{
-		$new_matrix = [];
 
-		foreach ($matrix as $key => $value) {
-			
-			if ($key == $column) {
-				$new_matrix[] = $value;
+
+	
+ 
+
+
+
+	public function __call($function,$arguments)
+	{
+		try{
+
+			return Register::make($function,$arguments,$this);
+
 			}
-		}
-
-		return $new_matrix;
-	}
-
-	public function add()
-	{
-		 
-		$no_of_matrix = 2;
-
-		//get the first element of each matrix into an array 
-	for($k = 0 ; $k < $this->columnCount($this->first());$k++){
-
-		for ($i=0; $i < $this->howManyMatrix() ; $i++) { 
-			
-			for ($j=0; $j < $this->rowCount($this->matrix[$i]); $j++) { 
-				
-				$row[] = $this->pickRow($this->matrix[$j],$i)[$k];	
-
-				
+		catch(BadMethodCallException $e)
+			{
+				echo $e->handle();
+				exit; 
 			}
-
-			
-
-			$result = array_sum($row);
-
-
-
-			$main_result[] = $result;
-					$result=[];
-		$row=[];
-			
-		}
-
-
-
-	}
-		
-
-		dd($main_result);
-
-	}
-
-	private function singleTransverse($matrix)
-	{
-		//transverse 1 by 1 array
-
-		foreach ($matrix as $key => $value) {
-		 	
-
-		 } 
-	}
-
-	private function first()
-	{
-		return $this->matrix[0];
-	}
-
-	public function howManyMatrix()
-	{
-		return count($this->matrix);
 	}
 }
-
-function dd($value)
-{
-	var_dump($value);
-	exit();
-}
-
+ 
 
 
 ?>
