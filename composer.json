@@ -1,6 +1,9 @@
 {
     "name": "busybrain/matrix",
     "description":"a simple php library for playing with matrices",
+    "license": "MIT",
+    "keywords": ["matrix", "vector", "mathematics"],
+    "type":"library",
     "authors": [
         {
             "name": "prof-anis",
