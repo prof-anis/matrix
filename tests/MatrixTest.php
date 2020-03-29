@@ -49,6 +49,17 @@ class MatrixTest extends TestCase
 		
 	}
 
+		public function testAddWithScalar()
+	{
+		$matrix_1 = [[1,2,3],[1,2,3]];
+		 
+
+		$result = $this->matrix->set($matrix_1)->setScalar(1)->add();
+
+		$this->assertSame($result,[[2,3,4],[2,3,4]]);
+		
+	}
+
 	public function tearDown():void
 	{
 		$this->matrix = [];

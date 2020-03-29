@@ -1,12 +1,15 @@
 {
-    "name": "anifowose/codejam",
+    "name": "tobexkee/matrix",
+    "description":"a simple php library for playing with matrices",
     "authors": [
         {
             "name": "prof-anis",
             "email": "emeritusprofessoranis@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php":"^7.2"
+    },
     "require-dev": {
         "phpunit/phpunit": "^9"
     },

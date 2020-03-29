@@ -1,14 +1,10 @@
 <?php
 
-function dd($value)
+
+function echo ()
 {
-	var_dump($value);
-	exit();
+	print_r(2+4);
 }
-include '../vendor/autoload.php';
-use App\Matrix;
 
-$test = new Matrix;
 
-$test->set([[1,2,3],[1,2,3]])->set([1,2],[1,2],[1,2]);
-
+echo();
