@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace Busybrain;
 
-use App\Exceptions\BadMethodCallException;
-use App\Traits\BasicTrait;
-use App\Builder;
+use Busybrain\Exceptions\BadMethodCallException;
+use Busybrain\Traits\BasicTrait;
+use Busybrain\Builder;
 /**
  * 
  */
@@ -43,13 +43,7 @@ class Matrix
 		return Builder::scalarToMatrix($scalar,$rows,$columns);
 	}
 
-
-
-
 	
- 
-
-
 
 	public function __call($function,$arguments)
 	{
@@ -60,8 +54,8 @@ class Matrix
 			}
 		catch(BadMethodCallException $e)
 			{
-				echo $e->handle();
-				exit; 
+				return $e;
+				 
 			}
 	}
 }

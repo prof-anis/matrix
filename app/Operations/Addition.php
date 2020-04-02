@@ -1,9 +1,10 @@
 <?php
-namespace App\Operations;
+namespace Busybrain\Operations;
 
-use App\Contracts\Operations;
-use App\Traits\BasicTrait;
-use App\Builder;
+use Busybrain\Validation\ValidateAddition;
+use Busybrain\Contracts\Operations;
+use Busybrain\Traits\BasicTrait;
+use Busybrain\Builder;
 /**
  * 
  */
@@ -15,6 +16,8 @@ class Addition implements Operations
 	private $scalar = [];
 
 	private $matrix = [];
+
+	private $result;
 
 
 	 function __construct($matrix)
@@ -85,14 +88,21 @@ class Addition implements Operations
 		return $this->result;
 	}
 
-	public function handle():bool
+	public function handle(ValidateAddition $validator):bool
 	{
-		if ($this->scalarExists()) {
-			
-			$this->addScalarToMatrix();
+ 
+
+		if($validator->checker($this->matrix)){
+				if ($this->scalarExists()) {
+					
+					$this->addScalarToMatrix();
+				}
+
+				return $this->add();
 		}
 
-		return $this->add();
+
+		
 	}
 
 	private function scalarExists()

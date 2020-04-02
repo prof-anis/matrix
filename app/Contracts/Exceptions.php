@@ -1,5 +1,5 @@
 <?php
-namespace App\Contracts;
+namespace Busybrain\Contracts;
 
 interface Exceptions
 {

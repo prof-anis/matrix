@@ -34,9 +34,9 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
-        'A' => 
+        'B' => 
         array (
-            'App\\' => 4,
+            'Busybrain\\' => 10,
         ),
     );
 
@@ -67,7 +67,7 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'App\\' => 
+        'Busybrain\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),

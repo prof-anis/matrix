@@ -1,7 +1,8 @@
 <?php
 
-use App\Matrix;
+use Busybrain\Matrix;
 use PHPUnit\Framework\TestCase;
+use Busybrain\Exceptions\BadMethodCallException;
 
 /**
  * 
@@ -57,6 +58,20 @@ class MatrixTest extends TestCase
 		$result = $this->matrix->set($matrix_1)->setScalar(1)->add();
 
 		$this->assertSame($result,[[2,3,4],[2,3,4]]);
+		
+	}
+
+	/*
+	** @expectedException BadMethodCallException
+	*/
+
+	public function testThrowBadMethodCallExceptionWhenWrongMethodIsCalled()
+	{
+	
+		
+		$this->matrix->divide();
+
+	// $this->expectException(BadMethodCallException::class);
 		
 	}
 
