@@ -1,0 +1,20 @@
+
+language: php
+
+php : 
+  -7.0
+  -7.1
+  -7.2
+  -7.4
+  -7.4
+  -hhvm
+
+before_script:
+  -composer self-update
+  -composer install
+
+script: vendor/bin/phpunit
+
+notifications:
+    on_success: never
+    on_failure: always
