@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Busybrain\Traits;
 
 
 trait BasicTrait
@@ -59,6 +59,22 @@ trait BasicTrait
 		}
 
 		return $new_matrix;
+	}
+
+	public function array_same(array $array)
+	{	
+		$first_value = $array[0];
+
+		for($i = 1; $i < count($array); $i++)
+		{
+			if ($array[$i] != $first_value) {
+				
+				return false;
+			}
+
+		}
+
+		return true;
 	}
 
 

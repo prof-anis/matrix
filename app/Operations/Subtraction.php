@@ -1,9 +1,10 @@
 <?php
-namespace App\Operations;
+namespace Busybrain\Operations;
 
-use App\Contracts\Operations;
-use App\Traits\BasicTrait;
-use App\Builder;
+use Busybrain\Validation\ValidateSubtraction;
+use Busybrain\Contracts\Operations;
+use Busybrain\Traits\BasicTrait;
+use Busybrain\Builder;
 /**
  * 
  */
@@ -80,14 +81,18 @@ class Subtraction implements Operations
 		return $this->result;
 	}
 
-	public function handle():bool
+	public function handle(ValidateSubtraction $validator):bool
 	{
-		if ($this->scalarExists()) {
+		if($validator->checker($this->matrix))
+		{
+			if ($this->scalarExists()) {
 			
 			$this->addScalarToMatrix();
 		}
 
 		return $this->subtract();
+		}
+		
 	}
 
 	private function scalarExists()

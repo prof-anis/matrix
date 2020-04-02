@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Exceptions;
+namespace Busybrain\Exceptions;
 
-use App\Contracts\Exceptions;
+use Busybrain\Contracts\Exceptions;
   
 /**
  * 

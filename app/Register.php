@@ -1,14 +1,14 @@
 <?php
 
-namespace App;
-use App\Exceptions\BadMethodCallException;
+namespace Busybrain;
+use Busybrain\Exceptions\BadMethodCallException;
 
 /**
  * 
  */
 class Register
 {
-	private const  defaultNameSpace = "App\Operations\\";
+	private const  defaultNameSpace = "Busybrain\Operations\\";
 
 
 	public static $library =
@@ -25,10 +25,15 @@ class Register
 	 		
 	 		$class_name = self::defaultNameSpace.self::$library[$function];
 
-	 		 
+	 		$validator =  self::resolveValidator($class_name);
+
+	 		$validator = new $validator($matrix->matrix);
+
 	 	 	$arguments = array_merge([$matrix],$arguments);
+
 	 		$class = new $class_name(...$arguments);
-	 		$class->handle();
+	 		
+	 		$class->handle($validator);
 
 	 		return $class->result();
 
@@ -41,6 +46,15 @@ class Register
 
 	 	
 	 }
+
+	 private static function  resolveValidator($class_name)
+	 {
+	 	$reflection = new \ReflectionClass($class_name);
+
+	 	return ($reflection->getMethod("handle")->getParameters()[0]->getType()->getName());
+
+
+	 } 
 }
 
 

@@ -1,6 +1,6 @@
 <?php
-namespace App\Operations;
-use App\Contracts\Operations;
+namespace Busybrain\Operations;
+use Busybrain\Contracts\Operations;
 
 
 class Multiplication implements Operations
@@ -22,12 +22,17 @@ class Multiplication implements Operations
 
 	public function handle() : bool
 	{
-		
+
 	}
 
 	public function result()
 	{
 		return $this->result;
+	}
+
+	public function multiply()
+	{
+		
 	}
 }
 

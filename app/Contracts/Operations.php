@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Contracts;
-
+namespace Busybrain\Contracts;
+use Busybrain\Contracts\Validators;
 interface Operations
 {
-	public function handle() : bool;
+	//public function handle($validator);
 }
 
 
