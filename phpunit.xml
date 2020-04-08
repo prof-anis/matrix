@@ -6,7 +6,7 @@
 	<testsuites>
 		<testsuite name="unit_tests">
 			<directory>./tests</directory>
-			<exclude>./tests/MatrixTest.php</exclude>
+			 
 		</testsuite>
 	</testsuites>
 
