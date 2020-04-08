@@ -1,8 +1,12 @@
-<phpunit  bootstrap="vendor/autoload.php">
+<phpunit  
+	bootstrap="tests/bootstrap.php"
+	colors="true"
+	>
 
 	<testsuites>
 		<testsuite name="unit_tests">
-			<directory>tests</directory>
+			<directory>./tests</directory>
+			<exclude>./tests/MatrixTest.php</exclude>
 		</testsuite>
 	</testsuites>
 
