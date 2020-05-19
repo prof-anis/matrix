@@ -13,10 +13,9 @@
     "require": {
 
         "php":"^7.2",
-        "illuminate/container": "^7.11",
-        "yay/yay": "dev-master",
+        "illuminate/container": "^7.11"
  
-        "php":"^7.4"
+       
  
     },
     "require-dev": {
