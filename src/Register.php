@@ -53,7 +53,7 @@ class Register extends Container
 	 		}
 	 	catch(BindingResolutionException $e)
 	 	{
-	 		throw(new BadMethodCallException("you tried calling a function $function which does not exist"));
+	 		throw(new BadMethodCallException("you tried calling a function $function which is not a recognized matrix function"));
 	 	}
 	 }
 

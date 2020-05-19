@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1589913125">
-  <project timestamp="1589913125">
+<coverage generated="1589913478">
+  <project timestamp="1589913478">
     <package name="Busybrain\Matrix\Basics">
       <file name="/home/anifowose/Desktop/codejam/src/Basics/BasicTrait.php">
         <class name="BasicTrait" namespace="Busybrain\Matrix\Basics">
