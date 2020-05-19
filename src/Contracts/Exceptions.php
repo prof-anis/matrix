@@ -1,8 +1,9 @@
 <?php
+ 
 
 namespace Busybrain\Matrix\Contracts;
  
-
+ 
 interface Exceptions
 {
 

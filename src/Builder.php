@@ -1,11 +1,9 @@
 <?php
 
+ 
  namespace Busybrain\Matrix;
-
-
-/**
- * 
- */
+ 
+ 
 class Builder
 {
 	public static function scalarToMatrix($scalar,$rows,$columns)

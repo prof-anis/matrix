@@ -2,13 +2,11 @@
 
  
  
+ 
 use Busybrain\Matrix\Exceptions\BadMethodCallException;
 use Busybrain\Matrix\Matrix;
 use PHPUnit\Framework\TestCase;
 
-/**
- * 
- */
 class MatrixTest extends TestCase
 {
 	public function setUp() : void
@@ -61,6 +59,22 @@ class MatrixTest extends TestCase
 		$this->assertCount(1,$instance->matrix);
 	}
 
+ 
+ 
+ 
+	/*
+	** @expectedException BadMethodCallException
+	*/
+
+	public function testThrowBadMethodCallExceptionWhenWrongMethodIsCalled()
+	{
+	
+		$this->expectException(BadMethodCallException::class);
+		$this->matrix->divide();
+
+ 
+		
+	}
  
 
 	public function tearDown():void

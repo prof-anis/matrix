@@ -1,9 +1,6 @@
 <?php
-
+  
  
-/**
- * 
- */
 
 namespace Busybrain\Matrix\Operations;
 
@@ -85,14 +82,19 @@ class Subtraction implements Operations
 		return $this->result;
 	}
 
+ 
 	public function handle(Validator $validator) 
+ 
 	{
-		if ($this->scalarExists()) {
+		 
+			if ($this->scalarExists()) {
 			
 			$this->addScalarToMatrix();
 		}
 
 		return $this->subtract();
+		
+		
 	}
 
 	private function scalarExists()
