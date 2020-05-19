@@ -1,8 +1,19 @@
+<p align="center">
+ <img width="200" src="https://matrix2018861590936.files.wordpress.com/2018/05/logomatrix.jpg"><br>
+    A simple, fluent and stable PHP library for playing around with matrices
+</p>
+
+<p align="center">
+    <a href="https://travis-ci.org/prof-anis/matrix"><img src="https://travis-ci.com/prof-anis/matrix.svg?branch=master" alt="Build Status"></a>
+   
+</p>
+
+
 ## SIMPLE PHP LIBRARY FOR PLAYING WITH MATRICES
 
 The focus of this project is simplicity, beautiful syntax and speed. It allows you work seemlessly with matrices in php. It comes with a handful of methods that you can use to write your own matrix logics 
 
-##Getting started
+## Getting started
 You can create an instance of the class using the new keyword and immediately call the set mathod which sets a matrix value into the class ready for manipulation. Each matrix instance must be a multidimensional array.
 
 ```
@@ -56,7 +67,7 @@ $matrix->scalarToMatrix($value,$row,$col);
 
 ```
 
-#operations
+# operations
 the library currently support the following operations and is still being worked on for others 
 1. Addition ----------------------- add
 2. subtraction -------------------- subtract
@@ -144,7 +155,7 @@ $matrix->set([
 		//sums the matrix, takes the transpose of the result , add the new matrix to the result, takes the transpose and calculates the determinant.
 ```
 
-#Other methods
+# Other methods
 There are a handful of methods that can give you details about a matrix . You can call them all on the matrix instance. 
 
 ```
@@ -177,13 +188,4 @@ $matrix->dimensions(array $matrix) : array //returns an array of [row,column]
  
 
 	  
-
-	  
- 
-
-
-
-}
-
-
-?>
+```
