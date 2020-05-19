@@ -10,12 +10,19 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        'fa15e949b98da930ffcb743d657561cb' => __DIR__ . '/..' . '/yay/yay/src/parsers.php',
+        '1926467da53ea84b6a1aef470755e181' => __DIR__ . '/..' . '/yay/yay/src/parsers_internal.php',
+        '8ed694d699a6f3f9449197b5f600cd96' => __DIR__ . '/..' . '/yay/yay/src/expanders.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'Y' => 
+        array (
+            'Yay\\' => 4,
         ),
         'W' => 
         array (
@@ -27,16 +34,24 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
+            'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
+            'PhpParser\\' => 10,
+        ),
+        'I' => 
+        array (
+            'Illuminate\\Contracts\\' => 21,
+            'Illuminate\\Container\\' => 21,
         ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
-        'A' => 
+        'B' => 
         array (
-            'App\\' => 4,
+            'Busybrain\\Matrix\\' => 17,
         ),
     );
 
@@ -47,6 +62,10 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
+        'Yay\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yay/yay/src',
+        ),
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
@@ -55,9 +74,29 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
+        'PhpParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'Illuminate\\Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/contracts',
+        ),
+        'Illuminate\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/container',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -67,13 +106,31 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'App\\' => 
+        'Busybrain\\Matrix\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/app',
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
     public static $classMap = array (
+        'Docopt' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Argument' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\BranchPattern' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Command' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Either' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\ExitException' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Handler' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\LanguageError' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\LeafPattern' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\OneOrMore' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Option' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Optional' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\OptionsShortcut' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Pattern' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Required' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Response' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\SingleMatch' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
+        'Docopt\\Tokens' => __DIR__ . '/..' . '/docopt/docopt/src/docopt.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/AssertionFailedError.php',
