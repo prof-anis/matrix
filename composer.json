@@ -11,14 +11,21 @@
         }
     ],
     "require": {
-        "php":"^7.4"
+
+        "php":"^7.2",
+        "illuminate/container": "^7.11"
+ 
+       
+ 
     },
     "require-dev": {
         "phpunit/phpunit": "^9"
     },
     "autoload": {
         "psr-4": {
-            "Busybrain\\": "app/"
+ 
+            "Busybrain\\Matrix\\": "src/"
+ 
         }
     }
 }

@@ -27,7 +27,14 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
+            'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
+        ),
+        'I' => 
+        array (
+            'Illuminate\\Contracts\\' => 21,
+            'Illuminate\\Container\\' => 21,
         ),
         'D' => 
         array (
@@ -36,7 +43,7 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         ),
         'B' => 
         array (
-            'Busybrain\\' => 10,
+            'Busybrain\\Matrix\\' => 17,
         ),
     );
 
@@ -55,9 +62,25 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
+        'Illuminate\\Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/contracts',
+        ),
+        'Illuminate\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/container',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -67,9 +90,9 @@ class ComposerStaticInita29deb85a6d5c8de8578f2c45bceca0d
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'Busybrain\\' => 
+        'Busybrain\\Matrix\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/app',
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

@@ -1,12 +1,12 @@
 <?php
 
-use Busybrain\Matrix;
+ 
+ 
+ 
+use Busybrain\Matrix\Exceptions\BadMethodCallException;
+use Busybrain\Matrix\Matrix;
 use PHPUnit\Framework\TestCase;
-use Busybrain\Exceptions\BadMethodCallException;
 
-/**
- * 
- */
 class MatrixTest extends TestCase
 {
 	public function setUp() : void
@@ -39,28 +39,29 @@ class MatrixTest extends TestCase
 		$this->assertSame($matrix,$this->matrix->scalarToMatrix(2,2,3));
 	}
 
-	public function testAddOnlyMatrix()
+	 
+	public function testWillThrowExceptionWhenInvalidOperationIsCalled()
 	{
-		$matrix_1 = [[1,2,3],[1,2,3]];
-		$matrix_2 = [[1,2,3],[1,2,3]];
-
-		$result = $this->matrix->set($matrix_1)->set($matrix_2)->add();
-
-		$this->assertSame($result,[[2,4,6],[2,4,6]]);
-		
+		$this->expectException(BadMethodCallException::class);
+		$this->matrix->invalidOperation();
 	}
 
-		public function testAddWithScalar()
+	public function  testMakeWorks()
 	{
-		$matrix_1 = [[1,2,3],[1,2,3]];
-		 
+		$matrix = [[1,2,3]];
 
-		$result = $this->matrix->set($matrix_1)->setScalar(1)->add();
+		$instance = Matrix::make($matrix);
 
-		$this->assertSame($result,[[2,3,4],[2,3,4]]);
-		
+		$this->assertInstanceOf(Matrix::class,$instance);
+
+		$this->assertSame($matrix,$instance->matrix[0]);
+
+		$this->assertCount(1,$instance->matrix);
 	}
 
+ 
+ 
+ 
 	/*
 	** @expectedException BadMethodCallException
 	*/
@@ -68,12 +69,13 @@ class MatrixTest extends TestCase
 	public function testThrowBadMethodCallExceptionWhenWrongMethodIsCalled()
 	{
 	
-		
+		$this->expectException(BadMethodCallException::class);
 		$this->matrix->divide();
 
-	// $this->expectException(BadMethodCallException::class);
+ 
 		
 	}
+ 
 
 	public function tearDown():void
 	{
