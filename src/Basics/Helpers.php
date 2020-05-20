@@ -2,14 +2,25 @@
 
 namespace Busybrain\Matrix\Basics;
 
+use Busybrain\Matrix\Exceptions\ValidationException;
 
-trait BasicTrait
+ 
+
+class Helpers
 {
-		private function first()
+
+
+	protected $scalar = [];
+
+	protected $matrix = [];
+
+	protected $result;
+
+
+	protected function first()
 	{
 		return $this->matrix[0];
 	}
-
 	public function howManyMatrix()
 	{
 		return count($this->matrix);
@@ -52,7 +63,7 @@ trait BasicTrait
 
 		if ($row < 1 || $col < 1) {
 			
-			throw new \Exception("invalid argument passed to the select function");
+			throw new ValidationException("invalid argument passed to the select function");
 		}
 
 		return $this->pickRow($matrix,($row -1))[$col - 1];
@@ -74,8 +85,10 @@ trait BasicTrait
 	}
 
 
-	function lu($mat, $n) 
+	public function lu($mat) 
 	{ 
+		$n = $this->dimensions($mat)[0];
+
 	    $lower; 
 	    $upper; 
 
@@ -131,11 +144,7 @@ trait BasicTrait
 	    return [$lower,$upper]; 
 	} 
 
-	 public function getDetFor2by2($matrix)
-	 {
-	 	return $this->select($matrix,1,1) * $this->select($matrix,2,2) - $this->select($matrix,1,2) * $this->select($matrix,2,1);
-
-	 }
+	
 
 	 public function rowDel($matrix,$row)
 	 {
@@ -158,52 +167,7 @@ trait BasicTrait
 	 	return transpose($mat);
 	 }
 
-	 public function getDetFor3by3($matrix)
-	 {
-
-	 	//extract the first row 
-	 	$first_row = $this->pickRow($matrix,0);
-
- 
-
-	 	$row = 0; //first row
-
-	 	for ($i=0; $i < count($first_row); $i++) { 
-	 		
-	 		//get the minor which should be a two by two 
-	 		$minor = $this->rowDel($this->colDel($matrix,$i),$row);
-	 		//resolve the multiplication
-	  
-	 		$det_part[] = $first_row[$i] * $this->getDetFor2by2($minor);
-	 		
-	 	}
-
 	 
-
-	 	//fixing in the negatives
-	 	
-	 	foreach ($det_part as $key => $value) {
-
-	 		if ($key%2 != 0) {
-	 			
-	 			$det_part[$key] = -1*$value;
-	 		}
-	 	}
-
-	 	return array_sum($det_part);
-	 }
-
-	 public function getDet($matrix)
-	 {
-	 	$dimension = $this->dimensions($matrix)[0];
-
-	 	[$l,$u] = $this->lu($matrix,$dimension);
-
-	 	
-
-	 	return ($this->diagonal_product($u));
-
-	 }
 
 	 public function diagonal_product($matrix)
 	 {
@@ -225,10 +189,4 @@ trait BasicTrait
 	 {
 	 	return [$this->rowCount($matrix),$this->columnCount($matrix)];
 	 }
-
-
-
 }
-
-
-?>

@@ -3,6 +3,8 @@
 namespace Busybrain\Matrix\Operations;
 
 use Busybrain\Matrix\Basics\BasicTrait;
+use Busybrain\Matrix\Basics\Helpers;
+use Busybrain\Matrix\Matrix;
 use Busybrain\Matrix\Validator;
 
  
@@ -10,15 +12,12 @@ use Busybrain\Matrix\Validator;
  
 
 
-class Determinant
+class Determinant extends Helpers
  {
- 	use BasicTrait;
+ 
 
 
-	private $scalar = [];
-
-	private $matrix = [];
-
+ 
 
 	 function __construct($matrix,$scalar)
 	 {
@@ -39,9 +38,51 @@ class Determinant
 	 {
 	 	 $matrix = $this->first();
 
-	 	return $this->getDet($matrix);
+	 	 return $this->resolveDet($matrix);
+	 	 
 
 	 }
+
+	 
+ 
+	 public function resolveDet($matrix)
+	 {	
+	 	
+	 	 $dimensions = $this->dimensions($matrix)[0];
+         $determinant = 0;
+
+        switch ($dimensions) {
+            case 1:
+                $determinant = $matrix->get(1, 1);
+                break;
+            case 2:
+                $determinant = select($matrix,1, 1) * select($matrix,2, 2) -
+                    select($matrix,1, 2) * select($matrix,2, 1);
+                break;
+            default:
+
+                for ($i = 1; $i <= $dimensions; ++$i) {
+                    $det = select($matrix,1, $i) * $this->getDeterminantSegment($matrix, 0, $i - 1);
+
+                    if (($i % 2) == 0) {
+                        $determinant -= $det;
+                    } else {
+                        $determinant += $det;
+                    }
+                }
+                break;
+        }
+
+        return $determinant;
+	 }
+
+	 private  function getDeterminantSegment($matrix, $row, $column)
+    {
+        $tmpMatrix = $this->rowDel($this->colDel($matrix,$column),$row);
+
+      
+        return $this->resolveDet($tmpMatrix);
+    }
 
 	
 	 

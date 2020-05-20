@@ -4,20 +4,17 @@
 namespace Busybrain\Matrix\Operations;
 
 use Busybrain\Matrix\Basics\BasicTrait;
+use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Builder;
 use Busybrain\Matrix\Contracts\Operations;
 use Busybrain\Matrix\Validator;
  
-class Addition implements Operations
+class Addition extends Helpers implements Operations 
 {
-	use BasicTrait;
+	
 
 
-	private $scalar = [];
-
-	private $matrix = [];
-
-	private $result;
+	 
 
 
 	function __construct($matrix,$scalar)
@@ -36,7 +33,7 @@ class Addition implements Operations
 		 
 		 $counter=0;
 		 $main_result[$counter] = [];
-		  
+		 $row=[];
 
 	
 

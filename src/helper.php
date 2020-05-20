@@ -7,7 +7,7 @@ use Busybrain\Matrix\Matrix;
  {
  	$mat = new Matrix;
 
- 	return $mat->set($matrix)->transpose();
+ 	return $mat->set($matrix)->transpose;
  }
 
  function array_multiply(array $array_1,array $array_2)
@@ -66,7 +66,7 @@ use Busybrain\Matrix\Matrix;
 			throw new \Exception("invalid argument passed to the select function");
 		}
 
-		return $this->pickRow($matrix,($row -1))[$col - 1];
+		return pickRow($matrix,($row -1))[$col - 1];
 
 	}
 

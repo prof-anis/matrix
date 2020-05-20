@@ -5,13 +5,14 @@
 namespace Busybrain\Matrix\Operations;
 
 use Busybrain\Matrix\Basics\BasicTrait;
+use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Contracts\Operations;
 use Busybrain\Matrix\Validator;
 
  
-class Subtraction implements Operations
+class Subtraction extends Helpers implements Operations
 {
-	use BasicTrait;
+ 
 
 	function __construct($matrix,$scalar)
 	 {
