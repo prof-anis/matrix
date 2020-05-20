@@ -69,6 +69,16 @@ class Matrix
 		return (int)$obj->set($matrix)->det() === 0;
 	}
 
+	public function get($row,$col)
+	{
+		return $this->first()[$row - 1][$col - 1];
+	}
+
+	public function getDimension()
+	{
+		return $this->dimensions($this->first());
+	}
+
 	public function __call($function,$argument)
 	{
 		 $response =  $this->register->makeApi($function,$this);
