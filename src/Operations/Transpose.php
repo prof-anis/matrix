@@ -3,6 +3,7 @@
 namespace Busybrain\Matrix\Operations;
 
 use Busybrain\Matrix\Basics\BasicTrait;
+use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Validator;
  
 
@@ -10,14 +11,10 @@ use Busybrain\Matrix\Validator;
 
  
 
-class Transpose 
+class Transpose extends Helpers
 {
-	use BasicTrait;
-
-
-	private $scalar = [];
-
-	private $matrix = [];
+ 
+ 
 
 
 	 function __construct($matrix,$scalar)

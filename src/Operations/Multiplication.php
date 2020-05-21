@@ -1,17 +1,14 @@
 <?php
 namespace App\Operations;
 
+use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Validator;
  
 
 
-class Multiplication  
+class Multiplication  extends Helpers
 {
-	private $matrix;
-
-	private $scalar;
-
-	private $result;
+	 
 
 
 	function __construct($matrix,$scalar)

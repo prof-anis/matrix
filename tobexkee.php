@@ -20,9 +20,10 @@ $matrix = new Matrix;
  $ert = [[1,2,3],[2,2,1],[7,4,3]];
 
  $mm = [[1,1,1],[1,1,1],[1,1,1]];
+
  $op = [[1,2,3],[3,4,3],[5,6,7]];
  
 
 
- $A = $matrix->set($op)->det();
+ $A = $matrix->set($op)->pickColumn(1);
  dd($A);

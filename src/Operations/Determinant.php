@@ -2,8 +2,9 @@
 
 namespace Busybrain\Matrix\Operations;
 
-use Busybrain\Matrix\Matrix;
 use Busybrain\Matrix\Basics\BasicTrait;
+use Busybrain\Matrix\Basics\Helpers;
+use Busybrain\Matrix\Matrix;
 use Busybrain\Matrix\Validator;
 
  
@@ -11,15 +12,12 @@ use Busybrain\Matrix\Validator;
  
 
 
-class Determinant
+class Determinant extends Helpers
  {
- 	use BasicTrait;
+ 
 
 
-	private $scalar = [];
-
-	private $matrix = [];
-
+ 
 
 	 function __construct($matrix,$scalar)
 	 {
