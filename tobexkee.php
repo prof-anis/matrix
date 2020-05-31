@@ -3,7 +3,7 @@ include "vendor/autoload.php";
 use Busybrain\Matrix\Matrix;
 function dd($val)
 {
-	print_r($val);
+	var_dump($val);
 	echo "\n";
 	exit;
 }
@@ -21,9 +21,11 @@ $matrix = new Matrix;
 
  $mm = [[1,1,1],[1,1,1],[1,1,1]];
 
- $op = [[1,2,3],[3,4,3],[5,6,7]];
+ $op = [];
+ 
  
 
 
- $A = $matrix->set($op)->pickColumn(1);
+ $A = Matrix::make($ert)->add();
+
  dd($A);

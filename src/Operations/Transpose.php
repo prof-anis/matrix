@@ -28,7 +28,8 @@ class Transpose extends Helpers
 
 	 public function handle(Validator $validate)
 	 {
-
+	 	dd($validate);
+	 	dd($validate->check());
  		return $this->result();
 
 	 }

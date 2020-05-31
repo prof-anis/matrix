@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/anifowose/Desktop/codejam/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/style.css" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/home/anifowose/Desktop/codejam/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Addtionals.php.html#5">Busybrain\Matrix\Additionals</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/BadMethodCallException.php.html#7">Busybrain\Matrix\Exceptions\BadMethodCallException</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/ValidationException.php.html#5">Busybrain\Matrix\Exceptions\ValidationException</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Operations/Multiplication.php.html#9">App\Operations\Multiplication</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validation/ValidationParser.php.html#7">Busybrain\Matrix\Validation\ValidationParser</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#12">Busybrain\Matrix\Validator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validation/ValidationAttributes.php.html#7">ValidationAttributes</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Basics/Helpers.php.html#9">Busybrain\Matrix\Basics\Helpers</a></td><td class="text-right">59%</td></tr>
+       <tr><td><a href="Matrix.php.html#17">Busybrain\Matrix\Matrix</a></td><td class="text-right">63%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Validator.php.html#12">Busybrain\Matrix\Validator</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Basics/Helpers.php.html#9">Busybrain\Matrix\Basics\Helpers</a></td><td class="text-right">71</td></tr>
+       <tr><td><a href="Validation/ValidationParser.php.html#7">Busybrain\Matrix\Validation\ValidationParser</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Validation/ValidationAttributes.php.html#7">ValidationAttributes</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Matrix.php.html#17">Busybrain\Matrix\Matrix</a></td><td class="text-right">31</td></tr>
+       <tr><td><a href="Operations/Multiplication.php.html#9">App\Operations\Multiplication</a></td><td class="text-right">30</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Addtionals.php.html#7"><abbr title="Busybrain\Matrix\Additionals::vat">vat</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Operations/Subtraction.php.html#106"><abbr title="Busybrain\Matrix\Operations\Subtraction::addScalarToMatrix">addScalarToMatrix</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validation/ValidationAttributes.php.html#36"><abbr title="ValidationAttributes::ValidateSquare">ValidateSquare</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validation/ValidationAttributes.php.html#16"><abbr title="ValidationAttributes::ValidateDim">ValidateDim</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#138"><abbr title="Busybrain\Matrix\Validator::addMessage">addMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#132"><abbr title="Busybrain\Matrix\Validator::validatable">validatable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#118"><abbr title="Busybrain\Matrix\Validator::processCommand">processCommand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#99"><abbr title="Busybrain\Matrix\Validator::processClosureCommands">processClosureCommands</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#85"><abbr title="Busybrain\Matrix\Validator::runValidation">runValidation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#73"><abbr title="Busybrain\Matrix\Validator::getMessage">getMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#62"><abbr title="Busybrain\Matrix\Validator::validateWithMessage">validateWithMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validator.php.html#37"><abbr title="Busybrain\Matrix\Validator::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validation/ValidationParser.php.html#40"><abbr title="Busybrain\Matrix\Validation\ValidationParser::resolveArg">resolveArg</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validation/ValidationParser.php.html#21"><abbr title="Busybrain\Matrix\Validation\ValidationParser::resolveParameters">resolveParameters</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validation/ValidationParser.php.html#9"><abbr title="Busybrain\Matrix\Validation\ValidationParser::parse">parse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Validation/ValidationAttributes.php.html#46"><abbr title="ValidationAttributes::ValidateSingular">ValidateSingular</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Basics/Helpers.php.html#88"><abbr title="Busybrain\Matrix\Basics\Helpers::lu">lu</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Operations/Multiplication.php.html#29"><abbr title="App\Operations\Multiplication::result">result</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Operations/Multiplication.php.html#24"><abbr title="App\Operations\Multiplication::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Operations/Multiplication.php.html#14"><abbr title="App\Operations\Multiplication::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Matrix.php.html#130"><abbr title="Busybrain\Matrix\Matrix::validateWithMessage">validateWithMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Matrix.php.html#125"><abbr title="Busybrain\Matrix\Matrix::validate">validate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Matrix.php.html#119"><abbr title="Busybrain\Matrix\Matrix::select">select</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Matrix.php.html#114"><abbr title="Busybrain\Matrix\Matrix::getDimension">getDimension</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Matrix.php.html#109"><abbr title="Busybrain\Matrix\Matrix::get">get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Matrix.php.html#102"><abbr title="Busybrain\Matrix\Matrix::isSingular">isSingular</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/ValidationException.php.html#7"><abbr title="Busybrain\Matrix\Exceptions\ValidationException::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/BadMethodCallException.php.html#9"><abbr title="Busybrain\Matrix\Exceptions\BadMethodCallException::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Matrix.php.html#135"><abbr title="Busybrain\Matrix\Matrix::__call">__call</abbr></a></td><td class="text-right">57%</td></tr>
+       <tr><td><a href="Matrix.php.html#159"><abbr title="Busybrain\Matrix\Matrix::__get">__get</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Operations/Subtraction.php.html#87"><abbr title="Busybrain\Matrix\Operations\Subtraction::handle">handle</abbr></a></td><td class="text-right">66%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Basics/Helpers.php.html#88"><abbr title="Busybrain\Matrix\Basics\Helpers::lu">lu</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Validation/ValidationAttributes.php.html#16"><abbr title="ValidationAttributes::ValidateDim">ValidateDim</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Validator.php.html#37"><abbr title="Busybrain\Matrix\Validator::validate">validate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Operations/Multiplication.php.html#29"><abbr title="App\Operations\Multiplication::result">result</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validation/ValidationParser.php.html#9"><abbr title="Busybrain\Matrix\Validation\ValidationParser::parse">parse</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Validator.php.html#85"><abbr title="Busybrain\Matrix\Validator::runValidation">runValidation</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Operations/Subtraction.php.html#106"><abbr title="Busybrain\Matrix\Operations\Subtraction::addScalarToMatrix">addScalarToMatrix</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Validation/ValidationParser.php.html#21"><abbr title="Busybrain\Matrix\Validation\ValidationParser::resolveParameters">resolveParameters</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Validation/ValidationParser.php.html#40"><abbr title="Busybrain\Matrix\Validation\ValidationParser::resolveArg">resolveArg</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Validator.php.html#62"><abbr title="Busybrain\Matrix\Validator::validateWithMessage">validateWithMessage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Matrix.php.html#135"><abbr title="Busybrain\Matrix\Matrix::__call">__call</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Matrix.php.html#159"><abbr title="Busybrain\Matrix\Matrix::__get">__get</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Operations/Subtraction.php.html#87"><abbr title="Busybrain\Matrix\Operations\Subtraction::handle">handle</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 8.0.1</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.5</a> with <a href="https://xdebug.org/">Xdebug 2.9.5</a> and <a href="https://phpunit.de/">PHPUnit 9.0.1</a> at Sun May 31 17:41:27 UTC 2020.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js" type="text/javascript"></script>
+  <script src="_js/d3.min.js" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([7,0,0,0,0,0,1,1,0,1,1,5], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([28,0,0,0,0,0,1,2,0,1,0,47], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Addtionals.php.html#5\">Busybrain\\Matrix\\Additionals<\/a>"],[59.25925925925925,26,"<a href=\"Basics\/Helpers.php.html#9\">Busybrain\\Matrix\\Basics\\Helpers<\/a>"],[100,3,"<a href=\"Biller.php.html#8\">Busybrain\\Matrix\\Biller<\/a>"],[100,3,"<a href=\"Builder.php.html#7\">Busybrain\\Matrix\\Builder<\/a>"],[0,1,"<a href=\"Exceptions\/BadMethodCallException.php.html#7\">Busybrain\\Matrix\\Exceptions\\BadMethodCallException<\/a>"],[0,1,"<a href=\"Exceptions\/ValidationException.php.html#5\">Busybrain\\Matrix\\Exceptions\\ValidationException<\/a>"],[63.33333333333333,17,"<a href=\"Matrix.php.html#17\">Busybrain\\Matrix\\Matrix<\/a>"],[100,12,"<a href=\"Operations\/Addition.php.html#12\">Busybrain\\Matrix\\Operations\\Addition<\/a>"],[91.66666666666666,9,"<a href=\"Operations\/Determinant.php.html#15\">Busybrain\\Matrix\\Operations\\Determinant<\/a>"],[0,5,"<a href=\"Operations\/Multiplication.php.html#9\">App\\Operations\\Multiplication<\/a>"],[84,12,"<a href=\"Operations\/Subtraction.php.html#13\">Busybrain\\Matrix\\Operations\\Subtraction<\/a>"],[100,5,"<a href=\"Operations\/Transpose.php.html#14\">Busybrain\\Matrix\\Operations\\Transpose<\/a>"],[100,10,"<a href=\"Register.php.html#15\">Busybrain\\Matrix\\Register<\/a>"],[0,7,"<a href=\"Validation\/ValidationParser.php.html#7\">Busybrain\\Matrix\\Validation\\ValidationParser<\/a>"],[0,14,"<a href=\"Validator.php.html#12\">Busybrain\\Matrix\\Validator<\/a>"],[0,7,"<a href=\"Validation\/ValidationAttributes.php.html#7\">ValidationAttributes<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Addtionals.php.html#7\">Busybrain\\Matrix\\Additionals::vat<\/a>"],[100,1,"<a href=\"Basics\/Helpers.php.html#20\">Busybrain\\Matrix\\Basics\\Helpers::first<\/a>"],[100,1,"<a href=\"Basics\/Helpers.php.html#24\">Busybrain\\Matrix\\Basics\\Helpers::howManyMatrix<\/a>"],[100,2,"<a href=\"Basics\/Helpers.php.html#29\">Busybrain\\Matrix\\Basics\\Helpers::rowSubtract<\/a>"],[100,1,"<a href=\"Basics\/Helpers.php.html#45\">Busybrain\\Matrix\\Basics\\Helpers::rowCount<\/a>"],[100,1,"<a href=\"Basics\/Helpers.php.html#50\">Busybrain\\Matrix\\Basics\\Helpers::columnCount<\/a>"],[100,1,"<a href=\"Basics\/Helpers.php.html#55\">Busybrain\\Matrix\\Basics\\Helpers::pickRow<\/a>"],[100,3,"<a href=\"Basics\/Helpers.php.html#62\">Busybrain\\Matrix\\Basics\\Helpers::select<\/a>"],[100,2,"<a href=\"Basics\/Helpers.php.html#73\">Busybrain\\Matrix\\Basics\\Helpers::pickColumn<\/a>"],[0,9,"<a href=\"Basics\/Helpers.php.html#88\">Busybrain\\Matrix\\Basics\\Helpers::lu<\/a>"],[100,1,"<a href=\"Basics\/Helpers.php.html#149\">Busybrain\\Matrix\\Basics\\Helpers::rowDel<\/a>"],[100,1,"<a href=\"Basics\/Helpers.php.html#159\">Busybrain\\Matrix\\Basics\\Helpers::colDel<\/a>"],[100,2,"<a href=\"Basics\/Helpers.php.html#172\">Busybrain\\Matrix\\Basics\\Helpers::diagonal_product<\/a>"],[100,1,"<a href=\"Basics\/Helpers.php.html#188\">Busybrain\\Matrix\\Basics\\Helpers::dimensions<\/a>"],[100,1,"<a href=\"Biller.php.html#11\">Busybrain\\Matrix\\Biller::total<\/a>"],[100,1,"<a href=\"Biller.php.html#20\">Busybrain\\Matrix\\Biller::vat<\/a>"],[100,1,"<a href=\"Biller.php.html#25\">Busybrain\\Matrix\\Biller::setVat<\/a>"],[100,2,"<a href=\"Builder.php.html#9\">Busybrain\\Matrix\\Builder::scalarToMatrix<\/a>"],[100,1,"<a href=\"Builder.php.html#22\">Busybrain\\Matrix\\Builder::identityMatrix<\/a>"],[0,1,"<a href=\"Exceptions\/BadMethodCallException.php.html#9\">Busybrain\\Matrix\\Exceptions\\BadMethodCallException::handle<\/a>"],[0,1,"<a href=\"Exceptions\/ValidationException.php.html#7\">Busybrain\\Matrix\\Exceptions\\ValidationException::handle<\/a>"],[100,1,"<a href=\"Matrix.php.html#48\">Busybrain\\Matrix\\Matrix::__construct<\/a>"],[100,1,"<a href=\"Matrix.php.html#62\">Busybrain\\Matrix\\Matrix::make<\/a>"],[100,1,"<a href=\"Matrix.php.html#78\">Busybrain\\Matrix\\Matrix::setScalar<\/a>"],[100,1,"<a href=\"Matrix.php.html#84\">Busybrain\\Matrix\\Matrix::set<\/a>"],[100,1,"<a href=\"Matrix.php.html#92\">Busybrain\\Matrix\\Matrix::identityMatrix<\/a>"],[100,1,"<a href=\"Matrix.php.html#97\">Busybrain\\Matrix\\Matrix::scalarToMatrix<\/a>"],[0,1,"<a href=\"Matrix.php.html#102\">Busybrain\\Matrix\\Matrix::isSingular<\/a>"],[0,1,"<a href=\"Matrix.php.html#109\">Busybrain\\Matrix\\Matrix::get<\/a>"],[0,1,"<a href=\"Matrix.php.html#114\">Busybrain\\Matrix\\Matrix::getDimension<\/a>"],[0,1,"<a href=\"Matrix.php.html#119\">Busybrain\\Matrix\\Matrix::select<\/a>"],[0,1,"<a href=\"Matrix.php.html#125\">Busybrain\\Matrix\\Matrix::validate<\/a>"],[0,1,"<a href=\"Matrix.php.html#130\">Busybrain\\Matrix\\Matrix::validateWithMessage<\/a>"],[57.14285714285714,3,"<a href=\"Matrix.php.html#135\">Busybrain\\Matrix\\Matrix::__call<\/a>"],[66.66666666666666,2,"<a href=\"Matrix.php.html#159\">Busybrain\\Matrix\\Matrix::__get<\/a>"],[100,1,"<a href=\"Operations\/Addition.php.html#20\">Busybrain\\Matrix\\Operations\\Addition::__construct<\/a>"],[100,5,"<a href=\"Operations\/Addition.php.html#31\">Busybrain\\Matrix\\Operations\\Addition::add<\/a>"],[100,1,"<a href=\"Operations\/Addition.php.html#83\">Busybrain\\Matrix\\Operations\\Addition::result<\/a>"],[100,2,"<a href=\"Operations\/Addition.php.html#90\">Busybrain\\Matrix\\Operations\\Addition::handle<\/a>"],[100,1,"<a href=\"Operations\/Addition.php.html#105\">Busybrain\\Matrix\\Operations\\Addition::scalarExists<\/a>"],[100,2,"<a href=\"Operations\/Addition.php.html#110\">Busybrain\\Matrix\\Operations\\Addition::addScalarToMatrix<\/a>"],[100,1,"<a href=\"Operations\/Determinant.php.html#22\">Busybrain\\Matrix\\Operations\\Determinant::__construct<\/a>"],[100,1,"<a href=\"Operations\/Determinant.php.html#31\">Busybrain\\Matrix\\Operations\\Determinant::handle<\/a>"],[100,1,"<a href=\"Operations\/Determinant.php.html#37\">Busybrain\\Matrix\\Operations\\Determinant::result<\/a>"],[87.5,5,"<a href=\"Operations\/Determinant.php.html#48\">Busybrain\\Matrix\\Operations\\Determinant::resolveDet<\/a>"],[100,1,"<a href=\"Operations\/Determinant.php.html#79\">Busybrain\\Matrix\\Operations\\Determinant::getDeterminantSegment<\/a>"],[0,1,"<a href=\"Operations\/Multiplication.php.html#14\">App\\Operations\\Multiplication::__construct<\/a>"],[0,1,"<a href=\"Operations\/Multiplication.php.html#24\">App\\Operations\\Multiplication::handle<\/a>"],[0,3,"<a href=\"Operations\/Multiplication.php.html#29\">App\\Operations\\Multiplication::result<\/a>"],[100,1,"<a href=\"Operations\/Subtraction.php.html#17\">Busybrain\\Matrix\\Operations\\Subtraction::__construct<\/a>"],[100,5,"<a href=\"Operations\/Subtraction.php.html#27\">Busybrain\\Matrix\\Operations\\Subtraction::subtract<\/a>"],[100,1,"<a href=\"Operations\/Subtraction.php.html#80\">Busybrain\\Matrix\\Operations\\Subtraction::result<\/a>"],[66.66666666666666,2,"<a href=\"Operations\/Subtraction.php.html#87\">Busybrain\\Matrix\\Operations\\Subtraction::handle<\/a>"],[100,1,"<a href=\"Operations\/Subtraction.php.html#101\">Busybrain\\Matrix\\Operations\\Subtraction::scalarExists<\/a>"],[0,2,"<a href=\"Operations\/Subtraction.php.html#106\">Busybrain\\Matrix\\Operations\\Subtraction::addScalarToMatrix<\/a>"],[100,1,"<a href=\"Operations\/Transpose.php.html#20\">Busybrain\\Matrix\\Operations\\Transpose::__construct<\/a>"],[100,1,"<a href=\"Operations\/Transpose.php.html#29\">Busybrain\\Matrix\\Operations\\Transpose::handle<\/a>"],[100,3,"<a href=\"Operations\/Transpose.php.html#36\">Busybrain\\Matrix\\Operations\\Transpose::result<\/a>"],[100,1,"<a href=\"Register.php.html#31\">Busybrain\\Matrix\\Register::__construct<\/a>"],[100,1,"<a href=\"Register.php.html#39\">Busybrain\\Matrix\\Register::makeApi<\/a>"],[100,2,"<a href=\"Register.php.html#49\">Busybrain\\Matrix\\Register::operation<\/a>"],[100,2,"<a href=\"Register.php.html#60\">Busybrain\\Matrix\\Register::registerBindings<\/a>"],[100,2,"<a href=\"Register.php.html#69\">Busybrain\\Matrix\\Register::bindByContext<\/a>"],[100,1,"<a href=\"Register.php.html#81\">Busybrain\\Matrix\\Register::canMake<\/a>"],[100,1,"<a href=\"Register.php.html#86\">Busybrain\\Matrix\\Register::canNotBeConvertedToMatrix<\/a>"],[0,3,"<a href=\"Validation\/ValidationParser.php.html#9\">Busybrain\\Matrix\\Validation\\ValidationParser::parse<\/a>"],[0,2,"<a href=\"Validation\/ValidationParser.php.html#21\">Busybrain\\Matrix\\Validation\\ValidationParser::resolveParameters<\/a>"],[0,2,"<a href=\"Validation\/ValidationParser.php.html#40\">Busybrain\\Matrix\\Validation\\ValidationParser::resolveArg<\/a>"],[0,4,"<a href=\"Validator.php.html#37\">Busybrain\\Matrix\\Validator::validate<\/a>"],[0,2,"<a href=\"Validator.php.html#62\">Busybrain\\Matrix\\Validator::validateWithMessage<\/a>"],[0,1,"<a href=\"Validator.php.html#73\">Busybrain\\Matrix\\Validator::getMessage<\/a>"],[0,3,"<a href=\"Validator.php.html#85\">Busybrain\\Matrix\\Validator::runValidation<\/a>"],[0,1,"<a href=\"Validator.php.html#99\">Busybrain\\Matrix\\Validator::processClosureCommands<\/a>"],[0,1,"<a href=\"Validator.php.html#118\">Busybrain\\Matrix\\Validator::processCommand<\/a>"],[0,1,"<a href=\"Validator.php.html#132\">Busybrain\\Matrix\\Validator::validatable<\/a>"],[0,1,"<a href=\"Validator.php.html#138\">Busybrain\\Matrix\\Validator::addMessage<\/a>"],[0,5,"<a href=\"Validation\/ValidationAttributes.php.html#16\">ValidationAttributes::ValidateDim<\/a>"],[0,1,"<a href=\"Validation\/ValidationAttributes.php.html#36\">ValidationAttributes::ValidateSquare<\/a>"],[0,1,"<a href=\"Validation\/ValidationAttributes.php.html#46\">ValidationAttributes::ValidateSingular<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

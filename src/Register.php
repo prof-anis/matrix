@@ -42,7 +42,7 @@ class Register extends Container
 	 	
 
 	 	$class =  $this->operation($function,$matrix);
-
+	 	
 	 	return $this->call([$class,'handle']);
  	}
 
@@ -70,11 +70,11 @@ class Register extends Container
 	 {
 	 	foreach (self::library as $api => $instance) {
 	 		
-	 		$validator =  "\Busybrain\Matrix\Validators\\".ucfirst($api)."Validator";
-
+	 		$validator =  "\Busybrain\Matrix\Validation\Validators\\".ucfirst($api)."Validator";
+	 	 
 	 	$this->when($instance)
 	 			->needs(Validator::class)
-	 			->give($validator);
+	 			->give(new $validator);
 	 	}
 	 }
 
