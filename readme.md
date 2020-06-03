@@ -1,3 +1,14 @@
+<p align="center">
+ <img width="200" src="https://matrix2018861590936.files.wordpress.com/2018/05/logomatrix.jpg"><br>
+    A simple, fluent and stable PHP library for playing around with matrices
+</p>
+
+<p align="center">
+    <a href="https://travis-ci.org/prof-anis/matrix"><img src="https://travis-ci.com/prof-anis/matrix.svg?branch=master" alt="Build Status"></a>
+   
+</p>
+
+
 ## SIMPLE PHP LIBRARY FOR PLAYING WITH MATRICES
 
 The focus of this project is simplicity, beautiful syntax and speed. It allows you work seemlessly with matrices in php. It comes with a handful of methods that you can use to write your own matrix logics 
@@ -212,3 +223,7 @@ $matrix->validateWithMessage(['square','dim:2,3',functiion($matrix,$fail){
 	}]);
 ```
 the method returns an array of the validation errors. An empty array is returned if the validation passes
+=======
+	  
+```
+
