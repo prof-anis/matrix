@@ -35,17 +35,11 @@ class Transpose extends Helpers implements Operations
 
 	 public function result()
 	 {
-	 	 
+	 	 $matrix = $this->first();
 
-		 $matrix = $this->first();
-
-		 
-		 	for ($i=0; $i < $this->columnCount($matrix) ; $i++) { 
+		 for ($i=0; $i < $this->columnCount($matrix) ; $i++) { 
 		 			for ($j=0; $j < $this->rowCount($matrix) ; $j++) { 
-
-		 				 
-		 					
-		 					$elements[] = $this->pickRow($matrix,$j)[$i];
+						$elements[] = $this->pickRow($matrix,$j)[$i];
  					}
 
 		 			$transpose[] = $elements;

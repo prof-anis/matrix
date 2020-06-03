@@ -170,16 +170,45 @@ $matrix->colDel($col) : array //returns a new matrix with the given column delet
 
 $matrix->dimensions() : array //returns an array of [row,column]
 
- 
-
-	  
-
-	  
- 
-
-
-
 }
 
-
 ?>
+```
+## Validation
+you can run valiation on a matrix against a set of attributes using the validate method . The validation options currently supported are 
+
+dim:row,col -------  checks if the matrix dimension matches the option given
+square --------- checks if the matrix is a square matrix
+singualr ------- checks if the matrix is a singular matrix
+
+```
+<?php 
+
+$matrix = Matrix::make([[1,2,3],[4,5,6]]);
+
+$matrix->validate(['square','singular','dim:2,3']);
+```
+you can also write closure based validations . it takes two arguments, first is the matrix being validated while the second is a function that is called when the validation returns false to pass the appropriate validation message
+```
+<?php
+
+$matrix->validate([functiion($matrix,$fail){
+		if($matrix->rowCount() < 1){
+			return $fail('matrix row count less than 1');
+		}
+		return true;
+	}]);
+```
+the validate method returns a boolean result. For debugging purpose, the package also has a method that returns the validation errors. use validateWithMessage instead
+
+```
+<?php
+
+$matrix->validateWithMessage(['square','dim:2,3',functiion($matrix,$fail){
+		if($matrix->rowCount() < 1){
+			return $fail('matrix row count less than 1');
+		}
+		return true;
+	}]);
+```
+the method returns an array of the validation errors. An empty array is returned if the validation passes
