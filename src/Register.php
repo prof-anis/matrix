@@ -2,6 +2,7 @@
 
 namespace Busybrain\Matrix;
  
+use Busybrain\Matrix\Contracts\Operations;
 use Busybrain\Matrix\Contracts\ValidatorInterface;
 use Busybrain\Matrix\Exceptions\BadMethodCallException;
 use Busybrain\Matrix\Validator;
@@ -9,20 +10,21 @@ use Busybrain\Matrix\Validators\TransposeValidator;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\BindingResolutionException;
 
-/**
- * 
- */
+
 class Register extends Container
 {
 	 
-
+	/**
+	 * matches the api to the class that would handle it
+	 * @var array
+	 */
 	protected const library =
 	 [
-	 	"add"=> Operations\Addition::class,
-	 	"subtract"=>Operations\Subtraction::class,
-	 	"det"=>Operations\Determinant::class,
-	 	"transpose"=>Operations\Transpose::class,
-	 	"multiply"=>Operations\Multiplication::class
+	 	"add"=> \Busybrain\Matrix\Operations\Addition::class,
+	 	"subtract"=>\Busybrain\Matrix\Operations\Subtraction::class,
+	 	"det"=>\Busybrain\Matrix\Operations\Determinant::class,
+	 	"transpose"=>\Busybrain\Matrix\Operations\Transpose::class,
+	 	"multiply"=>\Busybrain\Matrix\Operations\Multiplication::class
 
 	 ];
 
@@ -32,32 +34,53 @@ class Register extends Container
 	 {
 	 	 
 	 	$this->registerBindings();
-	 	$this->bindByContext();
+	 
 	 	 
 	 }
 
+ 
+
+	 /**
+	  * resolves the handle method on the operation class
+	  * @param  String $function  
+	  * @param  String $matrix
+	  * @throws ValidationException    
+	  * @return Array|int             
+	  */
 	 public  function makeApi($function,$matrix)
 	 {
 
 	 	
 
 	 	$class =  $this->operation($function,$matrix);
-
+	 	
 	 	return $this->call([$class,'handle']);
  	}
 
-	 public function operation($function,$args)
+ 	/**
+ 	 * resolve the operation class
+ 	 * @param  String $function 
+ 	 * @param   $args     
+ 	 * @throws BadMethodCallException 
+ 	 * @return Operations           
+ 	 */
+	 public function operation($function, $args) : Operations
 	 { 
 	 	try{
 	 	return $this->makeWith($function,["matrix"=>$args->matrix,"scalar"=>$args->scalar]);
 	 		}
 	 	catch(BindingResolutionException $e)
-	 	{
+	 	{	
+	 		
 	 		throw(new BadMethodCallException("you tried calling a function $function which is not a recognized matrix function"));
 	 	}
 	 }
 
-	 protected function registerBindings()
+	 /**
+	  * binds the operation to the operation class
+	  * @return self
+	  */
+	 protected function registerBindings() : self 
 	 {
 	 	foreach (self::library as $api => $concrete) {
 	 		$this->bind($api,$concrete);
@@ -66,24 +89,24 @@ class Register extends Container
 	 	return $this;
 	 }
 
-	 protected function bindByContext()
-	 {
-	 	foreach (self::library as $api => $instance) {
-	 		
-	 		$validator =  "\Busybrain\Matrix\Validators\\".ucfirst($api)."Validator";
+	
 
-	 	$this->when($instance)
-	 			->needs(Validator::class)
-	 			->give($validator);
-	 	}
-	 }
-
-	 public function canMake($property)
+	 /**
+	  * search the predefined function for an operation
+	  * @param  String $property 
+	  * @return bool
+	  */
+	 public function canMake($property):bool
 	 {
 	 	return in_array($property, array_keys(self::library));
 	 }
 
-	 public function canNotBeConvertedToMatrix($api)
+	 /**
+	  * checks of the api result can be converted to a matrix instance
+	  * @param  String $api 
+	  * @return bool
+	  */
+	 public function canNotBeConvertedToMatrix($api) : bool
 	 {
 	 	return in_array($api, ["det"]);
 	 }

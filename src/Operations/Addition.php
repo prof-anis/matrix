@@ -7,18 +7,14 @@ use Busybrain\Matrix\Basics\BasicTrait;
 use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Builder;
 use Busybrain\Matrix\Contracts\Operations;
-use Busybrain\Matrix\Validator;
+use Busybrain\Matrix\Validation\Validator;
+use Busybrain\Matrix\Validation\Validators\AddValidator;
  
 class Addition extends Helpers implements Operations 
 {
 	
-
-
-	 
-
-
 	function __construct($matrix,$scalar)
-	 {
+	{
 	 	
 	 	$this->matrix = $matrix;
 	 	$this->scalar = $scalar;
@@ -89,15 +85,16 @@ class Addition extends Helpers implements Operations
 
 	public function handle(Validator $validator) 
 	{
-		 
-		if ($this->scalarExists()) {
+		if($validator->validateAdd($this->matrix)){
+			if ($this->scalarExists()) {
+				
+				$this->addScalarToMatrix();
+			}
 			
-			$this->addScalarToMatrix();
+			return $this->add();
 		}
-
-	 
-
-		return $this->add();
+		 
+ 
 	}
  
 

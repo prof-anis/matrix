@@ -7,7 +7,8 @@ namespace Busybrain\Matrix\Operations;
 use Busybrain\Matrix\Basics\BasicTrait;
 use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Contracts\Operations;
-use Busybrain\Matrix\Validator;
+use Busybrain\Matrix\Validation\Validator;
+ 
 
  
 class Subtraction extends Helpers implements Operations
@@ -16,11 +17,8 @@ class Subtraction extends Helpers implements Operations
 
 	function __construct($matrix,$scalar)
 	 {
-	 	
 	 	$this->matrix = $matrix;
 	 	$this->scalar = $scalar;
-	  
-
 	 }
 
 
@@ -28,10 +26,7 @@ class Subtraction extends Helpers implements Operations
 	{
 		 $counter=0;
 		 $main_result[$counter] = [];
-		  
-
-	
-
+		
 		for ($i=0; $i < $this->rowCount($this->first()) ; $i++) { 
 			
 			for($k = 0 ; $k < $this->columnCount($this->first());$k++){
@@ -40,19 +35,11 @@ class Subtraction extends Helpers implements Operations
 				
 				$row[] = $this->pickRow($this->matrix[$j],$i)[$k];	
 
-				
 			}
-
-			 
-
-			
 
 			$result = $this->rowSubtract($row);
 
-			 
-
-			 
-		 	if(count($main_result[$counter]) == $this->columnCount($this->first()))
+			if(count($main_result[$counter]) == $this->columnCount($this->first()))
 		 	{
 		 		$counter++;
 		 	}
@@ -87,13 +74,17 @@ class Subtraction extends Helpers implements Operations
 	public function handle(Validator $validator) 
  
 	{
-		 
-			if ($this->scalarExists()) {
-			
-			$this->addScalarToMatrix();
-		}
+		 if($validator->validateSubtract($this->matrix)){
 
-		return $this->subtract();
+			 if ($this->scalarExists()) {
+				
+				$this->addScalarToMatrix();
+			}
+
+			return $this->subtract();
+
+		 }
+ 
 		
 		
 	}

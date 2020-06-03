@@ -4,14 +4,11 @@ namespace Busybrain\Matrix\Operations;
 
 use Busybrain\Matrix\Basics\BasicTrait;
 use Busybrain\Matrix\Basics\Helpers;
-use Busybrain\Matrix\Validator;
+use Busybrain\Matrix\Contracts\Operations;
+use Busybrain\Matrix\Validation\Validator;
  
-
  
-
- 
-
-class Transpose extends Helpers
+class Transpose extends Helpers implements Operations 
 {
  
  
@@ -28,24 +25,21 @@ class Transpose extends Helpers
 
 	 public function handle(Validator $validate)
 	 {
+	 	if ($validate->validateTranspose($this->first())) {
+	 		
+ 			return $this->result();
 
- 		return $this->result();
+	 	}
 
 	 }
 
 	 public function result()
 	 {
-	 	 
+	 	 $matrix = $this->first();
 
-		 $matrix = $this->first();
-
-		 
-		 	for ($i=0; $i < $this->columnCount($matrix) ; $i++) { 
+		 for ($i=0; $i < $this->columnCount($matrix) ; $i++) { 
 		 			for ($j=0; $j < $this->rowCount($matrix) ; $j++) { 
-
-		 				 
-		 					
-		 					$elements[] = $this->pickRow($matrix,$j)[$i];
+						$elements[] = $this->pickRow($matrix,$j)[$i];
  					}
 
 		 			$transpose[] = $elements;

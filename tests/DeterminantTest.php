@@ -1,6 +1,7 @@
 <?php
 
  
+use Busybrain\Matrix\Exceptions\ValidationException;
 use Busybrain\Matrix\Matrix;
 use PHPUnit\Framework\TestCase;
 
@@ -46,6 +47,13 @@ class DeterminantTest extends TestCase
 			
 		 
 		];
+	}
+
+	public function testWillThrowExceptionWhenNonSquareMatrixIsUsed()
+	{
+		$this->expectException(ValidationException::class);
+		$matrix = Matrix::make([[1,2,3],[4,5,6]]);
+		$matrix->det();
 	}
 
 	public function tearDown() :void
