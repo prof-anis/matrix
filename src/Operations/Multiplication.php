@@ -2,11 +2,13 @@
 namespace App\Operations;
 
 use Busybrain\Matrix\Basics\Helpers;
-use Busybrain\Matrix\Validator;
+use Busybrain\Matrix\Contracts\Operations;
+use Busybrain\Matrix\Validation\Validator;
+ 
  
 
 
-class Multiplication  extends Helpers
+class Multiplication  extends Helpers implements Operations 
 {
 	 
 

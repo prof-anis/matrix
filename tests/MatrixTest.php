@@ -71,9 +71,6 @@ class MatrixTest extends TestCase
 	
 		$this->expectException(BadMethodCallException::class);
 		$this->matrix->divide();
-
- 
-		
 	}
  
 

@@ -2,6 +2,7 @@
 
 namespace Busybrain\Matrix\Validation;
 
+use Busybrain\Matrix\Exceptions\ValidationException;
 use Busybrain\Matrix\Matrix;
 
 trait ValidationAttributes
@@ -45,6 +46,11 @@ trait ValidationAttributes
 	 */
 	public function ValidateSingular(Matrix $matrix) : bool
 	{
-		return $matrix->det === 0;
+		try {
+			$det = $matrix->det;
+			return $det === 0;
+		} catch (ValidationException $e) {
+			return false;
+		}
 	}
 }

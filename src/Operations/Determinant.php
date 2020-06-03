@@ -4,15 +4,11 @@ namespace Busybrain\Matrix\Operations;
 
 use Busybrain\Matrix\Basics\BasicTrait;
 use Busybrain\Matrix\Basics\Helpers;
+use Busybrain\Matrix\Contracts\Operations;
 use Busybrain\Matrix\Matrix;
-use Busybrain\Matrix\Validator;
-
+use Busybrain\Matrix\Validation\Validator;
  
-
- 
-
-
-class Determinant extends Helpers
+class Determinant extends Helpers implements Operations 
  {
  
 
@@ -30,8 +26,11 @@ class Determinant extends Helpers
 
 	 public function handle(Validator $validator)
 	 {
-	 	
-	 	return $this->result();
+	 	if ($validator->validateDet($this->first())) {
+	 		
+			return $this->result();
+
+	 	}
 	 }
 
 	 public function result()

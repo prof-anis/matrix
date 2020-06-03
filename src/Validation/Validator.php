@@ -1,17 +1,19 @@
 <?php
 
-namespace Busybrain\Matrix;
+namespace Busybrain\Matrix\Validation;
 
-use Closure;
 use Busybrain\Matrix\Contracts\ValidatorInterface;
 use Busybrain\Matrix\Exceptions\ValidationException;
 use Busybrain\Matrix\Matrix;
+use Busybrain\Matrix\Validation\OperationValidator;
 use Busybrain\Matrix\Validation\ValidationAttributes;
 use Busybrain\Matrix\Validation\ValidationParser;
+use Closure;
 
-class Validator implements ValidatorInterface
+class Validator 
 {
 	use ValidationAttributes;
+	use OperationValidator;
 
 	/**
 	 * the valid string validation rules
@@ -151,7 +153,7 @@ class Validator implements ValidatorInterface
 		$this->message[] = "the matrix failed $command validation"; 
 	}
 
-	//public function check(Matrix $matrix,)
+ 
 
 	
 }

@@ -19,7 +19,7 @@ $content = explode("\n",$file);
 foreach ($content as $key => $value) {
 	if ($value != "") {
 
-		$padi[] = $value;
+		$padi[] = $value;   kkk
 	}
 }
  

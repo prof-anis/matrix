@@ -7,7 +7,8 @@ namespace Busybrain\Matrix\Operations;
 use Busybrain\Matrix\Basics\BasicTrait;
 use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Contracts\Operations;
-use Busybrain\Matrix\Validator;
+use Busybrain\Matrix\Validation\Validator;
+ 
 
  
 class Subtraction extends Helpers implements Operations
@@ -87,13 +88,17 @@ class Subtraction extends Helpers implements Operations
 	public function handle(Validator $validator) 
  
 	{
-		 
-			if ($this->scalarExists()) {
-			
-			$this->addScalarToMatrix();
-		}
+		 if($validator->validateSubtract($this->matrix)){
 
-		return $this->subtract();
+			 if ($this->scalarExists()) {
+				
+				$this->addScalarToMatrix();
+			}
+
+			return $this->subtract();
+
+		 }
+ 
 		
 		
 	}

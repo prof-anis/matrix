@@ -1,6 +1,7 @@
 <?php
 
  
+use Busybrain\Matrix\Exceptions\ValidationException;
 use Busybrain\Matrix\Matrix;
 use PHPUnit\Framework\TestCase;
 
@@ -66,6 +67,14 @@ class AditionTest extends TestCase
 
 		$this->assertSame($result,[[2,3,4],[2,3,4]]);
 		
+	}
+
+	public function testWillThrowExceptionWhenWrongDimensionsAreUsed()
+	{
+		$this->expectException(ValidationException::class);
+		$matrix_1 = [[1,2],[1,2]];
+		$matrix_2 = [[1,2,3],[1,2,3]];
+		$result = $this->matrix->set($matrix_1)->set($matrix_2)->add;
 	}
 
 	public function tearDown() :void

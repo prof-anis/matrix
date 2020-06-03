@@ -7,8 +7,8 @@ use Busybrain\Matrix\Basics\BasicTrait;
 use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Builder;
 use Busybrain\Matrix\Contracts\Operations;
+use Busybrain\Matrix\Validation\Validator;
 use Busybrain\Matrix\Validation\Validators\AddValidator;
-use Busybrain\Matrix\Validator;
  
 class Addition extends Helpers implements Operations 
 {
@@ -85,7 +85,7 @@ class Addition extends Helpers implements Operations
 
 	public function handle(Validator $validator) 
 	{
-		if($validator->check($this->matrix)){
+		if($validator->validateAdd($this->matrix)){
 			if ($this->scalarExists()) {
 				
 				$this->addScalarToMatrix();

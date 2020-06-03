@@ -8,7 +8,8 @@ namespace Busybrain\Matrix;
 use Busybrain\Matrix\Basics\Helpers;
 use Busybrain\Matrix\Builder;
 use Busybrain\Matrix\Register;
-use Busybrain\Matrix\Validator;
+use Busybrain\Matrix\Validation\Validator;
+
  
  
 
@@ -36,7 +37,7 @@ class Matrix
 
 
 	/**
-	 * [$validator description]
+	 * 
 	 * @var Validator
 	 */
 	protected $validator;
@@ -81,7 +82,12 @@ class Matrix
 		return $this;
 	}
 
-	public function set(array $matrix) :object
+	/**
+	 * adds a matrix to the stack
+	 * @param array $matrix  
+	 * @return self 
+	 */
+	public function set(array $matrix) :self
 	{
 		$this->matrix[] = $matrix;
 
@@ -89,44 +95,89 @@ class Matrix
 
 	}
 
-	public static function identityMatrix($rows,$columns)
+	/**
+	 * makes i dentity matrux from the rows and column given
+	 * @param  int $rows    [description]
+	 * @param  int $columns [description]
+	 * @return array          
+	 */
+	public static function identityMatrix($rows,$columns):array
 	{
 		return Builder::identityMatrix($rows,$columns);
 	}
 
+	/**
+	 * converts a scalar value to a matrix 
+	 * @param  int $scalar  
+	 * @param  int $rows    
+	 * @param  int $columns 
+	 * @return array          
+	 */
 	public function scalarToMatrix($scalar,$rows,$columns):array
 	{
 		return Builder::scalarToMatrix($scalar,$rows,$columns);
 	}
 
+	/**
+	 * cheks if a matrix is a singular matrix
+	 * @param  array   $matrix 
+	 * @return boolean         
+	 */
 	public function isSingular(array $matrix):bool
 	{
-		$obj = new Matrix;
+		$matrix = self::make($matrix);
 
-		return (int)$obj->set($matrix)->det() === 0;
+		return $matrix->validate(['singular']);
 	}
 
+	/**
+	 * returns a specific element in the matrix
+	 * @param  int $row 
+	 * @param  int $col 
+	 * @return int      
+	 */
 	public function get($row,$col):int
 	{
 		return $this->first()[$row - 1][$col - 1];
 	}
 
+	/**
+	 * gets the dimension of a matrix
+	 * @return array
+	 */
 	public function getDimension():array
 	{
 		return $this->dimensions($this->first());
 	}
 
+
+	/**
+	 * returns a specific element in the matrix
+	 * @param  int $row 
+	 * @param  int $col 
+	 * @return int      
+	 */
 	public function select($row,$col):int
 	{
 		return $this->first()[$row][$col];
 	}
 
-
-	public function validate($rules):bool 
+	/**
+	 * validates the matrix against some set of attributes
+	 * @param  array $rules 
+	 * @return boolean       
+	 */
+	public function validate(array $rules):bool 
 	{
 		 return $this->validator->validate(self::make($this->matrix[0]),$rules);
 	}
 
+	/**
+	 * validates the matrix against some set of attributes and 
+	 * returns error message when failure occurs
+	 * @param  array $rules 
+	 * @return array       
+	 */
 	public function validateWithMessage($rules):array
 	{
 		return $this->validator->validateWithMessage(self::make($this->matrix[0]),$rules);
