@@ -4,189 +4,161 @@ namespace Busybrain\Matrix\Basics;
 
 use Busybrain\Matrix\Exceptions\ValidationException;
 
- 
-
 class Helpers
 {
+    protected $scalar = [];
 
+    protected $matrix = [];
 
-	protected $scalar = [];
+    protected $result;
 
-	protected $matrix = [];
+    protected function first()
+    {
+        return $this->matrix[0];
+    }
 
-	protected $result;
+    public function howManyMatrix()
+    {
+        return count($this->matrix);
+    }
 
+    public function rowSubtract(array $matrix): int
+    {
+        $first_element = $matrix[0];
 
-	protected function first()
-	{
-		return $this->matrix[0];
-	}
-	public function howManyMatrix()
-	{
-		return count($this->matrix);
-	}
+        $diff = $first_element - $matrix[1];
 
-	public function rowSubtract(array $matrix) : int
-	{
-		$first_element = $matrix[0];
+        for ($i = 2; $i < count($matrix); $i++) {
+            $diff = $diff - $matrix[$i];
+        }
 
-		$diff = $first_element - $matrix[1];
+        return $diff;
+    }
 
-		for ($i=2; $i < count($matrix) ; $i++) { 
-			
-			$diff = $diff - $matrix[$i];
-		}
+    public function rowCount($matrix): int
+    {
+        return count($matrix);
+    }
 
-	 
+    public function columnCount($matrix): int
+    {
+        return count($matrix[0]);
+    }
 
-		return ($diff);
-	}
+    public function pickRow($matrix, $row): array
+    {
+        return $matrix[$row];
+    }
 
-		public function rowCount($matrix) :int
-	{
-		return count($matrix);
-	}
+    public function select($matrix, $row, $col)
+    {
+        if ($row < 1 || $col < 1) {
+            throw new ValidationException('invalid argument passed to the select function');
+        }
 
-	public function columnCount($matrix) : int
-	{ 
-		return count($matrix[0]);
-	}
+        return $this->pickRow($matrix, ($row - 1))[$col - 1];
+    }
 
-	public function pickRow($matrix,$row) : array
-	{
+    public function pickColumn($matrix, $column): array
+    {
+        $new_matrix = [];
 
+        foreach ($matrix as $key => $value) {
+            $new_matrix[] = $value[$column];
+        }
 
-		return $matrix[$row];
-	}
+        return $new_matrix;
+    }
 
-	public function  select($matrix,$row,$col){
+    public function lu($mat)
+    {
+        $n = $this->dimensions($mat)[0];
 
-		if ($row < 1 || $col < 1) {
-			
-			throw new ValidationException("invalid argument passed to the select function");
-		}
+        for ($i = 0; $i < $n; $i++) {
+            for ($j = 0; $j < $n; $j++) {
+                $lower[$i][$j] = 0;
+                $upper[$i][$j] = 0;
+            }
+        }
+        // Decomposing matrix
+        // into Upper and Lower
+        // triangular matrix
+        for ($i = 0; $i < $n; $i++) {
 
-		return $this->pickRow($matrix,($row -1))[$col - 1];
+            // Upper Triangular
+            for ($k = $i; $k < $n; $k++) {
 
-	}
+                // Summation of
+                // L(i, j) * U(j, k)
+                $sum = 0;
+                for ($j = 0; $j < $i; $j++) {
+                    $sum += ($lower[$i][$j] *
+                             $upper[$j][$k]);
+                }
 
-	public function pickColumn($matrix,$column) : array
-	{
-		$new_matrix = [];
- 
-		foreach ($matrix as $key => $value) {
-			
-			 
-				$new_matrix[] = $value[$column];
-			 
-		}
+                // Evaluating U(i, k)
+                $upper[$i][$k] = $mat[$i][$k] - $sum;
+            }
 
-		return $new_matrix;
-	}
+            // Lower Triangular
+            for ($k = $i; $k < $n; $k++) {
+                if ($i == $k) {
+                    $lower[$i][$i] = 1;
+                } // Diagonal as 1
+                else {
 
+                    // Summation of L(k, j) * U(j, i)
+                    $sum = 0;
+                    for ($j = 0; $j < $i; $j++) {
+                        $sum += ($lower[$k][$j] *
+                                 $upper[$j][$i]);
+                    }
 
-	public function lu($mat) 
-	{ 
-		$n = $this->dimensions($mat)[0];
+                    // Evaluating L(k, i)
+                    $lower[$k][$i] = (int) (($mat[$k][$i] -
+                                    $sum) / $upper[$i][$i]);
+                }
+            }
+        }
 
-	    $lower; 
-	    $upper; 
+        return [$lower, $upper];
+    }
 
-	    for($i = 0; $i < $n; $i++) 
-	    for($j = 0; $j < $n; $j++) 
-	    { 
-	        $lower[$i][$j]= 0; 
-	        $upper[$i][$j]= 0; 
-	    } 
-	    // Decomposing matrix  
-	    // into Upper and Lower 
-	    // triangular matrix 
-	    for ($i = 0; $i < $n; $i++)  
-	    { 
-	  
-	        // Upper Triangular 
-	        for ($k = $i; $k < $n; $k++)  
-	        { 
-	  
-	            // Summation of  
-	            // L(i, j) * U(j, k) 
-	            $sum = 0; 
-	            for ($j = 0; $j < $i; $j++) 
-	                $sum += ($lower[$i][$j] *  
-	                         $upper[$j][$k]); 
-	  
-	            // Evaluating U(i, k) 
-	            $upper[$i][$k] = $mat[$i][$k] - $sum; 
-	        } 
-	  
-	        // Lower Triangular 
-	        for ($k = $i; $k < $n; $k++)  
-	        { 
-	            if ($i == $k) 
-	                $lower[$i][$i] = 1; // Diagonal as 1 
-	            else
-	            { 
-	  
-	                // Summation of L(k, j) * U(j, i) 
-	                $sum = 0; 
-	                for ($j = 0; $j < $i; $j++) 
-	                    $sum += ($lower[$k][$j] *  
-	                             $upper[$j][$i]); 
-	  
-	                // Evaluating L(k, i) 
-	                $lower[$k][$i] = (int)(($mat[$k][$i] -  
-	                                $sum) / $upper[$i][$i]); 
-	            } 
-	        } 
-	    } 
-	   
-	 
-	    return [$lower,$upper]; 
-	} 
+    public function rowDel($matrix, $row)
+    {
+        unset($matrix[$row]);
 
-	
+        $matrix = array_values($matrix);
 
-	 public function rowDel($matrix,$row)
-	 {
-	 	 
-	 	 unset($matrix[$row]);
+        return $matrix;
+    }
 
-	 	 $matrix = array_values($matrix);
+    public function colDel($matrix, $col)
+    {
+        $mat = transpose($matrix);
 
-	 	 return $matrix;
-	 }
+        $mat = $this->rowDel($mat, $col);
 
-	 public function colDel($matrix,$col)
-	 {
-	  
+        return transpose($mat);
+    }
 
-	 	$mat = transpose($matrix);
+    public function diagonal_product($matrix)
+    {
+        $row = 0;
+        $col = 0;
+        $element = 1;
 
-	 	$mat = $this->rowDel($mat,$col);
-	 	  
-	 	return transpose($mat);
-	 }
+        foreach ($matrix as $key => $value) {
+            $element *= $this->pickRow($matrix, $row)[$col];
+            $row++;
+            $col++;
+        }
 
-	 
+        return $element;
+    }
 
-	 public function diagonal_product($matrix)
-	 {
-	 	$row = 0;
-	 	$col = 0;
-	 	$element=1;
-
-	 	foreach ($matrix as $key => $value) {
-	 		
-	 		$element *= $this->pickRow($matrix,$row)[$col];
-	 		$row++;
-	 		$col++;
-	 	}
-
-	 	return $element;
-	 }
-
-	 public function dimensions($matrix)
-	 {
-	 	return [$this->rowCount($matrix),$this->columnCount($matrix)];
-	 }
+    public function dimensions($matrix)
+    {
+        return [$this->rowCount($matrix), $this->columnCount($matrix)];
+    }
 }

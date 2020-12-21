@@ -1,89 +1,77 @@
 <?php
 
 use Busybrain\Matrix\Matrix;
- 
 
- function transpose($matrix)
+function transpose($matrix)
+{
+    $mat = new Matrix();
+
+    return $mat->set($matrix)->transpose;
+}
+
+ function array_multiply(array $array_1, array $array_2)
  {
- 	$mat = new Matrix;
+     foreach ($array_1 as $key => $value) {
+         $new_array[] = $array_1[$key] * $array_2[$key];
+     }
 
- 	return $mat->set($matrix)->transpose;
+     return $new_array;
  }
 
- function array_multiply(array $array_1,array $array_2)
- {
- 	foreach ($array_1 as $key => $value) {
- 		
- 		$new_array[] = $array_1[$key] * $array_2[$key];
- 	}
+     function howManyMatrix()
+     {
+         return count($this->matrix);
+     }
 
- 	return $new_array;
- }
- 
+     function rowSubtract(array $matrix): int
+     {
+         $first_element = $matrix[0];
 
-	 function howManyMatrix()
-	{
-		return count($this->matrix);
-	}
+         $diff = $first_element - $matrix[1];
 
-	 function rowSubtract(array $matrix) : int
-	{
-		$first_element = $matrix[0];
+         for ($i = 2; $i < count($matrix); $i++) {
+             $diff = $diff - $matrix[$i];
+         }
 
-		$diff = $first_element - $matrix[1];
+         return $diff;
+     }
 
-		for ($i=2; $i < count($matrix) ; $i++) { 
-			
-			$diff = $diff - $matrix[$i];
-		}
+         function rowCount($matrix): int
+         {
+             return count($matrix);
+         }
 
-	 
+     function columnCount($matrix): int
+     {
+         return count($matrix[0]);
+     }
 
-		return ($diff);
-	}
+     function pickRow($matrix, $row): array
+     {
+         return $matrix[$row];
+     }
 
-		 function rowCount($matrix) :int
-	{
-		return count($matrix);
-	}
+     function select($matrix, $row, $col)
+     {
+         if ($row < 1 || $col < 1) {
+             throw new \Exception('invalid argument passed to the select function');
+         }
 
-	 function columnCount($matrix) : int
-	{ 
-		return count($matrix[0]);
-	}
+         return pickRow($matrix, ($row - 1))[$col - 1];
+     }
 
-	 function pickRow($matrix,$row) : array
-	{
+     function pickColumn($matrix, $column): array
+     {
+         $new_matrix = [];
 
+         foreach ($matrix as $key => $value) {
+             $new_matrix[] = $value[$column];
+         }
 
-		return $matrix[$row];
-	}
+         return $new_matrix;
+     }
 
-	 function  select($matrix,$row,$col){
-
-		if ($row < 1 || $col < 1) {
-			
-			throw new \Exception("invalid argument passed to the select function");
-		}
-
-		return pickRow($matrix,($row -1))[$col - 1];
-
-	}
-
-	 function pickColumn($matrix,$column) : array
-	{
-		$new_matrix = [];
-
-		foreach ($matrix as $key => $value) {
-			
-			$new_matrix[] = $value[$column];
-		}
-
-		return $new_matrix;
-	}
-
-
-	function dimensions($matrix)
-	 {
-	 	return [rowCount($matrix),columnCount($matrix)];
-	 }
+    function dimensions($matrix)
+    {
+        return [rowCount($matrix), columnCount($matrix)];
+    }
