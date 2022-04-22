@@ -1,3 +1,5 @@
+# Looking at this 2 years after i wrote this code and i am only glad at the progress i have made :)
+
 <p align="center">
  <img width="200" src="https://matrix2018861590936.files.wordpress.com/2018/05/logomatrix.jpg"><br>
     A simple, fluent and stable PHP library for playing around with matrices
